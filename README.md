@@ -34,3 +34,9 @@ Check the storage of your device and see how many patch spots you have left
 Rip side A and B of your album and converts to .flac, mp3 or m4a. 
 safely eject the device 
 Pretty ASCII art 
+
+
+## Credit 
+All credit goes to the original creator of the opie toolkit 
+User: mcginty 
+https://github.com/mcginty
