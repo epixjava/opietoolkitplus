@@ -1,21 +1,20 @@
-
 import click
 import os
 import sys
 import importlib.util
 
 
-sys.path.append(os.path.normpath(os.path.dirname(os.path.abspath(__file__))))
-plugin_folder = os.path.normpath(os.path.join(os.path.dirname(__file__), 'commands'))
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+plugin_folder = os.path.join(os.path.dirname(__file__), 'commands')
 
 class OpieCLI(click.MultiCommand):
     opie_logo = r"""
-    ___    ____    _   _______
-   / _ \  |  _ \  (_) | |_____| 
-  | | | | | | | | | | | |__
-  | | | | | |_| | | | | |__|
-  | |_| | |  __/  | | | |_____  
-   \___/  |_|     |_| |_|_____| 
+  ___    ____    _   _______
+ / _ \  |  _ \  (_) | |_____| 
+| | | | | | | | | | | |__
+| | | | | |_| | | | | |__|
+| |_| | |  __/  | | | |_____  
+ \___/  |_|     |_| |_|_____| 
 
 *================================*
    | Your OP-1 's best frand! |
@@ -34,12 +33,12 @@ class OpieCLI(click.MultiCommand):
         return rv
 
     def get_command(self, ctx, name):
-        ns = {}
-        fn = os.path.join(plugin_folder, name + '.py')
-        with open(fn) as f:
-            code = compile(f.read(), fn, 'exec')
-            eval(code, ns, ns)
-        return click.Command(name, callback=ns['cli'].callback)
+     ns = {}
+     fn = os.path.join(plugin_folder, name + '.py')
+     with open(fn) as f:
+         code = compile(f.read(), fn, 'exec')
+         eval(code, ns, ns)
+     return click.Command(name, callback=ns['cli'].callback)
 
     def get_command_description(self, name):
         spec = importlib.util.spec_from_file_location(name, os.path.join(plugin_folder, name + '.py'))
@@ -61,12 +60,13 @@ class OpieCLI(click.MultiCommand):
             choice = input("\nEnter a command or type exit: ").strip().lower()
             
             if choice in ['quit', 'exit']:
+                print("Exiting...\nPlease return to OP-1RepackerGUI")
                 return
             elif choice in self.list_commands(ctx):
                 command = self.get_command(ctx, choice)
                 return command.invoke(ctx)
             else:
-                print(f"Invalid command: {choice}. Please see available commands")
+                print(f"Invalid command: {choice}. Please select from the list of available commands")
 
 cli = OpieCLI()
 
