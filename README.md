@@ -38,5 +38,5 @@ Pretty ASCII art!
 
 ## Credit 
 All credit goes to the original creator of the opie toolkit 
-User: mcginty 
+mcginty, 
 https://github.com/mcginty
