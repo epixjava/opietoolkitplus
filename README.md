@@ -4,6 +4,10 @@ Opie is the desktop frand for the OP-1.
 
 ** Now works on Windows and Mac OS! 
 
+
+![OPIEPLUS](https://github.com/epixjava/opietoolkitplus/blob/opie.png)
+
+
 ## Usin' it
 
 Open the opietoolkitplus folder in terminal 
