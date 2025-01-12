@@ -11,7 +11,7 @@ then run python opie.py or python3 opie.py
 
 OR 
 
-Run the opie toolkit from the op1REpackerGUI tool.
+Run the opie toolkit from the op1REpackerGUI tool found here: https://github.com/epixjava/op1REpackerGUI
 
 In the terminal window 
 enter one of the following commands; 
